@@ -1,0 +1,21 @@
+﻿#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+tr {
+    background: #FFF2;
+}
+
+th, td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+pre {
+    background-color: #0005;
+    padding: 3px 7px;
+    border-radius: 5px;
+}

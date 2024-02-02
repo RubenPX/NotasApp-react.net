@@ -1,0 +1,53 @@
+﻿using ReactApp1.Server.Domain;
+
+namespace ReactApp1.Server.Repository {
+    public class InMemoryNotas : NotasRepository {
+
+        private readonly List<Nota> _notas = new List<Nota>();
+
+        public Nota Create(string titulo, string autor) {
+            Nota nota = new Nota { 
+                titulo = titulo, 
+                autor = autor, 
+                fechaCreacion = DateTime.Now, 
+                fechaEdicion = DateTime.Now 
+            };
+
+            _notas.Add(nota);
+
+            return nota;
+        }
+
+        public Nota Delete(string id) {
+            Nota nota = this.Get(id);
+            _notas.Remove(nota);
+            return nota;
+        }
+
+        public Nota Get(string id) {
+            Nota? foundNota = _notas.Find(nota => nota.id == id);
+            if (foundNota == null) throw new Exception("Nota no encontrada");
+            return foundNota;
+        }
+
+        public IEnumerable<Nota> GetList() {
+            return _notas;
+        }
+
+        public Nota Modify(string id, string titulo, string autor) {
+            // Consigue la nota que se busca
+            int notaIndex = _notas.FindIndex(nota => nota.id == id);
+            if (notaIndex == -1) throw new Exception("Nota no encontrada");
+            Nota nota = _notas[notaIndex];
+
+            // Reemplaza los datos
+            nota.titulo = titulo;
+            nota.autor = autor;
+            nota.fechaEdicion = DateTime.Now;
+
+            // Reemplaza los datos de la nota
+            _notas[notaIndex] = nota;
+            return nota;
+        }
+    }
+}

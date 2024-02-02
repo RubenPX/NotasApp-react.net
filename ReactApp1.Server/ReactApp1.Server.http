@@ -1,0 +1,17 @@
+@ReactApp1.Server_HostAddress = http://localhost:5136
+
+GET {{ReactApp1.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+PUT {{ReactApp1.Server_HostAddress}}/Nota/
+Accept: application/json
+Content-Type: application/json
+
+{
+  titulo: "test"
+}
+
+
+###
