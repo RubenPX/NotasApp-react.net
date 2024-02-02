@@ -34,9 +34,9 @@ De momento solo esta definido las
   Dentro de esta carpeta, esta el proyecto del backend.
 
   Estructura de carpetas:
-  - Controllers: Aqui se almacenaran todas las rutas que va a usar la aplicación. Lo normal aqui es que siga un patrón. Poer ejemplo: `[algo]Controller.cs` El nombre del archivo siempre terminará por Controller.cs
-  - Domain: Aqui se define los tipos de datos que se van a usar en la aplicación. Puede contener algun tipo de logica, pero tiene que ser minima. [Explicación aqui](ReactApp1.Server/Controllers) (Hay un readme adjuntado que explica las partes de un controlador)
-  - Repository: Aqui se define todo lo que va a tocar entrada y salida de datos (I/O). Da igual que sea un acceso SQL, Sistema de archivos o en memoria.
+  - `Controllers`: Aqui se almacenaran todas las rutas que va a usar la aplicación. Lo normal aqui es que siga un patrón. Poer ejemplo: `[algo]Controller.cs` El nombre del archivo siempre terminará por Controller.cs
+  - `Domain`: Aqui se define los tipos de datos que se van a usar en la aplicación. Puede contener algun tipo de logica, pero tiene que ser minima. [Explicación aqui](ReactApp1.Server/Controllers) (Hay un readme adjuntado que explica las partes de un controlador)
+  - `Repository`: Aqui se define todo lo que va a tocar entrada y salida de datos (I/O). Da igual que sea un acceso SQL, Sistema de archivos o en memoria.
 
   > [!note]
   > Ojo, no todos los proyectos siguen la misma estructura, cada proyecto tiene su propia jerga y forma de organizar las cosas. Pero lo normal es que se siga una plantilla o idea en comun
