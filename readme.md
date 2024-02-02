@@ -1,9 +1,9 @@
 # Aplicación de notas de React
 El objetivo de este repositorio es aprender un poco como funciona ASP.NET Core por dentro.
 
-Empezaremos con lo básico. Tipos de datos, métodos, clases y por ultimo lo que haremos es completar con un framework que queráis a llamar a la api.
+Asumire que ya habeis programado antes, asi que me saltare la explicación de clases, metodos y tipos de datos nativos
 
-Este repositorio contiene un ejemplo de cómo funciona por detrás ASP.
+Este repositorio contiene un ejemplo de una aplicación .net core y React 
 
 Como venís de un curso en el pasado, me imagino que ya conoceis los tipos de datos. Pues en .NET es parecido.
 
