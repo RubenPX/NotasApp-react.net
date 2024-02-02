@@ -1,41 +1,72 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReactApp1.Server.Domain;
 using ReactApp1.Server.Repository;
+using System.Diagnostics;
 
 namespace ReactApp1.Server.Controllers {
     [ApiController]
     [Route("api/[controller]")]
     public class NotasController : ControllerBase {
 
-        private InMemoryNotas notas = new InMemoryNotas();
+        private NotasRepository notas = InMemoryNotas.instance;
 
         // GET: api/Lista
         [HttpGet]
-        public IEnumerable<Nota> GetLista() {
-            return notas.GetList();
+        [ProducesResponseType(typeof(List<Nota>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public IActionResult GetLista() {
+            try {
+                return Ok(notas.GetList());
+            } catch (Exception ex) {
+                return CodeExceptionDTO.generateResponse(this, ex);
+            }
         }
 
         [HttpGet("{id}")]
-        public string GetNota(string id) {
-            Console.WriteLine(id);
-            return "OK!";
+        [ProducesResponseType(typeof(Nota), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CodeExceptionDTO), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public IActionResult GetNota(string id) {
+            try {
+                return Ok(notas.Get(id));
+            } catch (Exception ex) {
+                return CodeExceptionDTO.generateResponse(this, ex);
+            }
         }
 
         [HttpPut]
-        public Nota CreateNota([FromBody] NotaDTO nota) {
-            return notas.Create(nota.titulo, nota.autor);
+        [ProducesResponseType(typeof(Nota), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public IActionResult CreateNota([FromBody] NotaDTO nota) {
+            try {
+                return Ok(notas.Create(nota.titulo, nota.autor));
+            } catch (Exception ex) {
+                return CodeExceptionDTO.generateResponse(this, ex);
+            }
         }
 
         [HttpDelete("{id}")]
-        public Nota DeleteNota(string id) {
-            return notas.Delete(id);
+        [ProducesResponseType(typeof(Nota), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CodeExceptionDTO), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public IActionResult DeleteNota(string id) {
+            try {
+                return Ok(notas.Delete(id));
+            } catch (Exception ex) {
+                return CodeExceptionDTO.generateResponse(this, ex);
+            }
         }
 
         [HttpPost("{id}")]
-        public Nota ModifyNota(string id, [FromBody]NotaDTO data) {
-            return notas.Modify(id, data.titulo, data.autor);
+        [ProducesResponseType(typeof(Nota), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CodeExceptionDTO), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public IActionResult ModifyNota(string id, [FromBody]NotaDTO data) {
+            try {
+                return Ok(notas.Modify(id, data.titulo, data.autor));
+            } catch (Exception ex) {
+                return CodeExceptionDTO.generateResponse(this, ex);
+            }
         }
-
-
     }
 }
