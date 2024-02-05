@@ -1,5 +1,7 @@
-﻿namespace ReactApp1.Server.Domain {
-    public class NotaDTO {
+﻿namespace ReactApp1.Server.Controllers.DTO
+{
+    public class NotaDTO
+    {
         /// <summary>ID de la nota</summary>
         public string? id { get; set; }
 

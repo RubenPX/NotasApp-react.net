@@ -1,7 +1,9 @@
-﻿namespace ReactApp1.Server.Domain {
-    public class Nota {
+﻿namespace ReactApp1.Server.Domain.Entity
+{
+    public class Nota
+    {
         /// <summary>ID de la nota</summary>
-        public string id {  get; set; }
+        public string id { get; set; }
 
         /// <summary>Titulo de la nota</summary>
         public string titulo { get; set; }

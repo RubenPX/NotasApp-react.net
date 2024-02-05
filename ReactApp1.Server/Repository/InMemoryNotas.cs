@@ -1,11 +1,13 @@
-﻿using ReactApp1.Server.Domain;
+﻿using ReactApp1.Server.Domain.Entity;
+using ReactApp1.Server.Domain.Interfaces;
 using System.ComponentModel;
 
-namespace ReactApp1.Server.Repository {
-    public class InMemoryNotas : NotasRepository {
+namespace ReactApp1.Server.Repository
+{
+    public class InMemoryNotas : INotasRepository {
 
-        private static NotasRepository? repository;
-        public static NotasRepository instance {
+        private static INotasRepository? repository;
+        public static INotasRepository instance {
             get { 
                 if (repository == null) { repository = new InMemoryNotas(); }
                 return repository;

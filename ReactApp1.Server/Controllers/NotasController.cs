@@ -1,14 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ReactApp1.Server.Domain;
+using ReactApp1.Server.Controllers.DTO;
+using ReactApp1.Server.Domain.Entity;
+using ReactApp1.Server.Domain.Interfaces;
 using ReactApp1.Server.Repository;
 using System.Diagnostics;
 
-namespace ReactApp1.Server.Controllers {
+namespace ReactApp1.Server.Controllers
+{
     [ApiController]
     [Route("api/[controller]")]
     public class NotasController : ControllerBase {
 
-        private NotasRepository notas = InMemoryNotas.instance;
+        private INotasRepository notas = InMemoryNotas.instance;
 
         // GET: api/Lista
         [HttpGet]

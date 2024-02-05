@@ -1,5 +1,9 @@
-﻿namespace ReactApp1.Server.Domain {
-    public interface NotasRepository {
+﻿using ReactApp1.Server.Domain.Entity;
+
+namespace ReactApp1.Server.Domain.Interfaces
+{
+    public interface INotasRepository
+    {
 
         /// <summary>Consigue la lista completa de notas</summary>
         /// <returns>Lista de notas</returns>
